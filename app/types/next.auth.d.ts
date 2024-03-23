@@ -4,8 +4,18 @@ declare module "next-auth" {
   interface Session {
     user: {
       "id": string
-      "mail": string
       "name": string
+      "mail": string
+      "document": string
+      "profileImage": string
+      "role": string
+      company: {
+        "name": string
+        "cnpj": string
+        "primaryColor": string
+        "secundaryColor": string
+        "image": string
+      }
     }
   }
 }

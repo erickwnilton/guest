@@ -29,7 +29,7 @@ export function FormLogin(props: LoginComponentProps) {
     })
 
     if (result?.error) {
-      return console.log(result)
+      return null
     }
     
     else {

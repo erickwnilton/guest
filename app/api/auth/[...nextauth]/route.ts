@@ -20,7 +20,7 @@ const nextAuthOptions: NextAuthOptions = {
           })
   
           if(!response.data || !response.data.user) {
-            return console.log("Failed to login");
+            return null
           }
   
           else {
@@ -29,7 +29,7 @@ const nextAuthOptions: NextAuthOptions = {
             return user;
           }
         } catch (error) {
-          console.log(`Error during login: ${error}`); 
+          return null
         }
       },
     })
