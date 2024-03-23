@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import { Providers } from "./providers";
+import { NextAuthSessionProvider } from "./providers/sessionProvider";
 
 export const metadata: Metadata = {
   title: "Guest",
@@ -15,7 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <NextAuthSessionProvider>
+          <Providers>
+            {children}
+          </Providers>
+        </NextAuthSessionProvider>
       </body>
     </html>
   );

@@ -73,9 +73,10 @@ export function FormRegister(props: RegisterComponentProps) {
           {props.role}
         </FormLabel>
         <Select 
-        width="180px" 
+        width="190px" 
         variant="outline" 
         borderColor="#0077ff" 
+        placeholder="Selecione seu cargo"
         {...register("role", {required: true})}
         >
           <option value="cargo1">Cargo1</option>
@@ -100,7 +101,7 @@ export function FormRegister(props: RegisterComponentProps) {
       </FormControl>
       </div>
       <Box marginTop="20px">
-        <Button type="submit" width="500px" bgColor="#0077ff" _hover={{bgColor: "#0077ffdc"}}>
+        <Button type="submit" width="500px" bgColor="#0077ff" color="#fff" _hover={{bgColor: "#0077ffdc"}}>
           {props.button}
         </Button>
       </Box>
