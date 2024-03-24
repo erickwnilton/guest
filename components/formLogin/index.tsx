@@ -1,10 +1,10 @@
 "use client"
 
+import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { SyntheticEvent, useState } from "react";
-import {FormControl, FormLabel, Input, Box, Button} from "@chakra-ui/react";
+import {FormControl, FormLabel, Input, Box, Button, useToast} from "@chakra-ui/react";
 
 interface LoginComponentProps {
   name: string
@@ -13,15 +13,14 @@ interface LoginComponentProps {
 }
 
 export function FormLogin(props: LoginComponentProps) {
-  const {register} = useForm();
+  const toast = useToast();
+  const {register, handleSubmit} = useForm();
   const [mail, setEmail] = useState<String>("");
   const [password, setPassword] = useState<String>("");
   
   const router = useRouter();
 
-  async function handleUserData(e: SyntheticEvent ) {
-    e.preventDefault()
-
+  async function handleUserData() {
     const result = await signIn("credentials", {
       mail,
       password,
@@ -29,7 +28,14 @@ export function FormLogin(props: LoginComponentProps) {
     })
 
     if (result?.error) {
-      return null
+      return toast({
+        status: "error",
+        duration: 10000,
+        position: "top-right",
+        title: "Usuário não encontrado.",
+        description: "Insira um e-mail válido.",
+        isClosable: true
+        })
     }
     
     else {
@@ -38,7 +44,7 @@ export function FormLogin(props: LoginComponentProps) {
   }
 
   return (
-    <form onSubmit={handleUserData}>
+    <form onSubmit={handleSubmit(handleUserData)}>
       <FormControl>
         <FormLabel>
           {props.name}
@@ -50,6 +56,7 @@ export function FormLogin(props: LoginComponentProps) {
         onChange={(e) => setEmail(e.target.value)}
          />
       </FormControl>
+
       <FormControl>
         <FormLabel>
           {props.label}
@@ -61,16 +68,16 @@ export function FormLogin(props: LoginComponentProps) {
         onChange={(e) => setPassword(e.target.value)}
         />
       </FormControl>
+
       <Box marginTop="20px">
         <Button 
         type="submit" 
-        width="420px" 
+        width="100%"
         color="#fff" 
         bgColor="#0077ff" 
         _hover={{bgColor: "#0077ffdc"}}
         >
           {props.button}
-
         </Button>
       </Box>
     </form>
