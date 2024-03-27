@@ -15,8 +15,8 @@ interface LoginComponentProps {
 export function FormLogin(props: LoginComponentProps) {
   const toast = useToast();
   const {register, handleSubmit} = useForm();
-  const [mail, setEmail] = useState<String>("");
-  const [password, setPassword] = useState<String>("");
+  const [mail, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   
   const router = useRouter();
 
@@ -29,12 +29,12 @@ export function FormLogin(props: LoginComponentProps) {
 
     if (result?.error) {
       return toast({
-        status: "error",
-        duration: 10000,
-        position: "top-right",
         title: "Usuário não encontrado.",
         description: "Insira um e-mail válido.",
-        isClosable: true
+        status: "error",
+        duration: 10000,
+        isClosable: true,
+        position: "top-right"
         })
     }
     
