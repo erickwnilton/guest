@@ -7,8 +7,16 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Guest",
   description: "Sistema para gerenciar estoque e produtos",
-  keywords: ["Guest","Gestão", "Produtos", "Estoque", "Gerenciamento"],
-  icons: {icon: ["/shoppCar.png"]}
+  keywords: [
+    "Guest",
+    "Gestão",
+    "Produtos",
+    "Estoque",
+    "Gerenciamento",
+    "Software",
+    "Webapp",
+  ],
+  icons: { icon: ["/shoppCar.png"] },
 };
 
 export default function RootLayout({
