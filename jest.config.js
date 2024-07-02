@@ -10,9 +10,9 @@ const customJestConfig = {
     testPathIgnorePatterns: ['/node_modules/', '/.next/'],
     collectCoverage: true,
     collectCoverageFrom: [
-        'src/components/**/*.ts(x)?',
-        'src/templates/**/*.ts(x)?',
-        '!src/**/stories.tsx'
+        'app/**/*.ts(x)',
+        'components/**/*.ts(x)?',
+        'templates/**/*.ts(x)?',
     ]
 }
 
