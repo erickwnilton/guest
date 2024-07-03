@@ -13,7 +13,7 @@ export default function Home() {
             plataforma de gestão.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <button className="w-[150px] rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white">
+            <button className="w-[150px] rounded-md bg-yellow-600 px-3.5 py-2.5 text-sm font-semibold text-white">
               Entrar
             </button>
             <button className="text-sm font-semibold leading-6 text-gray-900">
