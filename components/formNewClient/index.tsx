@@ -2,11 +2,15 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { api } from "@/services/api";
+import { useRouter } from "next/navigation";
 import { NewUserInput } from "@/types/formUser";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaForRegisterUser } from "@/schemas/userSchema";
+import { notifyError, notifySuccess } from "@/utils/toastMessages";
 
 export function FormNewClient() {
+  const router = useRouter();
   const [name, setName] = useState<string>("");
   const [mail, setMail] = useState<string>("");
   const [document, setDocument] = useState<string>("");
@@ -20,8 +24,22 @@ export function FormNewClient() {
     return value.replace(document, "$1.$2.$3-$4");
   }
 
-  function RegistrationFormData() {
-    console.log();
+  async function RegistrationFormData() {
+    try {
+      const addNewUser = await api.post("/user", {
+        name,
+        mail,
+        document,
+        password,
+      });
+
+      if (addNewUser) {
+        notifySuccess();
+        router.push("/");
+      }
+    } catch (error) {
+      notifyError();
+    }
   }
 
   return (

@@ -4,7 +4,7 @@ export default function NewClient() {
   return (
     <section className="w-screen h-screen bg-white flex flex-col md:flex-row">
       <div className="flex w-full md:w-[50%] items-center justify-center">
-        <div className="max-w-md p-4">
+        <div className="max-w-md m-4">
           <h1 className="text-4xl mt-10 text-center font-bold tracking-tight text-gray-900 md:text-left sm:text-4xl">
             Seja cliente <span>→</span>
           </h1>
