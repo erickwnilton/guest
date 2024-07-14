@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { FormNewClient } from "@/components/formNewClient";
 
 export default function SignUp() {
   return (
-    <section className="w-screen h-screen bg-gray-100 flex flex-col md:flex-row">
+    <section className="w-screen h-screen bg-gray-200 md:bg-gray-100 flex flex-col md:flex-row">
       <div className="flex w-full md:w-[60%] items-center justify-center">
         <div className="max-w-md m-4">
           <h1 className="text-4xl mt-10 text-center font-bold tracking-tight text-gray-800 md:text-left sm:text-4xl">
