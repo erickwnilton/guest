@@ -30,7 +30,7 @@ export function FormNewClient() {
     return value.replace(document, "$1.$2.$3-$4");
   }
 
-  async function RegistrationFormData() {
+  const RegistrationFormData = async () => {
     try {
       const addNewUser = await api.post("/user", {
         name,
@@ -46,7 +46,7 @@ export function FormNewClient() {
     } catch (error) {
       notifyError();
     }
-  }
+  };
 
   return (
     <div className="flex w-full h-full">
