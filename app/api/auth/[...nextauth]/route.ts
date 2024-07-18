@@ -1,10 +1,9 @@
 import { api } from "@/services/api";
-
 import NextAuth from "next-auth/next";
-import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { NextAuthOptions } from "next-auth";
 
-const nextAuthOptions: NextAuthOptions = {
+export const nextAuthOptions: NextAuthOptions = {
   secret: process.env.AUTH_SECRET,
   providers: [
     CredentialsProvider({
@@ -52,4 +51,4 @@ const nextAuthOptions: NextAuthOptions = {
 };
 
 const handler = NextAuth(nextAuthOptions);
-export { handler as GET, handler as POST, nextAuthOptions };
+export { handler as GET, handler as POST };
