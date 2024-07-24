@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import { api } from "@/services/api";
 import { useForm } from "react-hook-form";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export function CardBoarding() {
@@ -45,7 +44,7 @@ export function CardBoarding() {
           <select
             {...register("role", { required: true })}
             onChange={(e) => setSelectedRole(e.target.value)}
-            className="border-[1px] w-full h-[50px] rounded-md "
+            className="border-[1px] w-full h-[50px] rounded-md"
           >
             <option value="client">Cliente</option>
             <option value="company">Empresa</option>
@@ -61,11 +60,12 @@ export function CardBoarding() {
         </form>
       </div>
       <div className="flex items-center justify-center mt-3">
-        <Link href="/signin">
-          <span className="underline underline-offset-4 hover:text-yellow-500 delay-75">
-            Voltar
-          </span>
-        </Link>
+        <button
+          onClick={() => signOut({ callbackUrl: "/signin" })}
+          className="underline underline-offset-4 hover:text-yellow-500 delay-75"
+        >
+          Voltar
+        </button>
       </div>
     </div>
   );

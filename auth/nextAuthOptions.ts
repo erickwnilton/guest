@@ -27,7 +27,7 @@ export const nextAuthOptions: NextAuthOptions = {
             return user;
           }
         } catch (error) {
-          return console.log("caiu no catch");
+          return null;
         }
       },
     }),
@@ -35,6 +35,7 @@ export const nextAuthOptions: NextAuthOptions = {
 
   pages: {
     signIn: "/signin",
+    signOut: "/signup",
   },
 
   callbacks: {
