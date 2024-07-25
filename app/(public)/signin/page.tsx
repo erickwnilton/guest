@@ -1,5 +1,10 @@
-import { LayoutPublic } from "@/layouts/LayoutPublic";
+import type { Metadata } from "next";
+import { LayoutPublic } from "@/services/layouts/LayoutPublic";
 import { FormEnterClient } from "@/components/formEnterClient";
+
+export const metadata: Metadata = {
+  title: "Guest | login",
+};
 
 export default function SignIn() {
   return (

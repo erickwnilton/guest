@@ -1,5 +1,10 @@
-import { LayoutPublic } from "@/layouts/LayoutPublic";
+import type { Metadata } from "next";
+import { LayoutPublic } from "@/services/layouts/LayoutPublic";
 import { FormNewClient } from "@/components/formNewClient";
+
+export const metadata: Metadata = {
+  title: "Guest | cadastre-se",
+};
 
 export default function SignUp() {
   return (

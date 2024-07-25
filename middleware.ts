@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function Middleware(req: NextRequest) {
   const token = await getToken({ req });
 
-  if (req.nextUrl.pathname.startsWith("/private")) {
+  if (req.nextUrl.pathname.startsWith("/(private)")) {
     if (!token) {
       return NextResponse.redirect(new URL("/signin", req.url));
     }
@@ -14,5 +14,5 @@ export async function Middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/private/:path*"],
+  matcher: ["/(private)/:path*"],
 };

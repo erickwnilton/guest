@@ -1,4 +1,9 @@
-import { LayoutPublic } from "@/layouts/LayoutPublic";
+import type { Metadata } from "next";
+import { LayoutPublic } from "@/services/layouts/LayoutPublic";
+
+export const metadata: Metadata = {
+  title: "Guest | redefinir senha",
+};
 
 export default function Recover() {
   return (

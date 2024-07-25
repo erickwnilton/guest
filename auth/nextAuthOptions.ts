@@ -3,7 +3,6 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const nextAuthOptions: NextAuthOptions = {
-  secret: process.env.AUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -35,7 +34,13 @@ export const nextAuthOptions: NextAuthOptions = {
 
   pages: {
     signIn: "/signin",
-    signOut: "/signup",
+    newUser: "/signup",
+    signOut: "/",
+  },
+
+  secret: process.env.AUTH_SECRET,
+  session: {
+    strategy: "jwt",
   },
 
   callbacks: {

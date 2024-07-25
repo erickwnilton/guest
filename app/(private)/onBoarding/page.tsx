@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import { CardBoarding } from "@/components/cardBoarding";
-import { LayoutPrivate } from "@/layouts/LayoutPrivate";
+import { LayoutPrivate } from "@/services/layouts/LayoutPrivate";
+
+export const metadata: Metadata = {
+  title: "Guest | embarque",
+};
 
 export default function OnBoarding() {
   return (
